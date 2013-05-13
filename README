@@ -1,0 +1,31 @@
+#ControladorWeb
+#Sistema de Controle Web para gerenciamento de WebHosts!
+#Versão: 0.1
+#Licença: LGPL3
+#mantenedor: Cleyton Fábio (pixies) - pixies@pelivre.org 
+#
+#
+######################################################### Perguntas interessantes
+
+1 O que ela faz?
+  Otimiza recursos do apache2 oferecendo mais conforto no gerenciamento de HostVistuais ao administrador.
+
+2 Quem desenvolve?
+  Atualmente eu "pixies" venho otimizando os scripts e o Izaac Filho vem fazendo alguns testes também! Precisamos de mais amigos!
+
+3 Como surgio a ideia?
+  Dentro da rede de servidores livres, Ananias Filho aka kram3r implementou um conjunto de scripts os quais venho otimizando.
+
+4 Dependências?
+  Para instalar o ControladorWeb é necessário ter o apache2 instalado e o modulo userDir ativo.
+
+5 Por que precisa do modulo userDir?
+  Permite um melhor controle do acesso aos hosts hospedados. Atualmente está é a melhor forma de fazer isso, mais estamos 
+testando sua real necessidade.
+
+6 O ControladorWeb está em desenvolvimento?
+  Sim, mais o modelo já pode ser utilizado, na verdade está em produção e testes a mais de 4 anos, desde o início da rede de servidores 
+livre.
+
+7 Quem pode ajudar?
+  Você, descubra como!
