@@ -1,0 +1,75 @@
+#!/bin/bash
+# script para a criacao de hosts
+# para o uso, digite ./criarvhost <usuario> <nomedohost> <email do admin>
+# <usuario> -> Usuario no GNU/Linux
+# <nomedohost> -> Nome do host a ser adcionado
+# <email do admin> -> E-mail de quem vai administrar o host
+#
+# IMPORTANTE - (Primeira versão escrito by vitoriamario)
+# 
+# Versão atual, 0.1
+# Mantenedor: pixies
+# Licença: GPL
+#
+#
+
+#verifica se o parametro nomedovhost foi digitado
+if test $# = 0
+then
+	echo ERRO:: SINTAXE MAL FORMADA:
+	echo Utilize ./criarvhost <usuario> <nomedovhost.org> <emailadmin@server.org>
+	exit 1
+fi
+
+#Configurando nivel usuario
+cd /home/$1
+mkdir -p $2/site
+mkdir -p $2/log/apache
+
+# Ativando pastas htdocs
+cd $2
+ln -s site public_html
+cd ..
+
+#criacao de vhost
+echo "
+<VirtualHost *:80>
+   ServerName $2
+   ServerAlias $2
+   ServerAdmin $3
+   DocumentRoot /home/$1/$2/public_html
+   ErrorLog /home/$1/$2/log/apache/$2_error_log
+   CustomLog /home/$1/$2/log/apache/$2_access_log combined
+   <Directory "/home/$1/$2/public_html">
+         Options -Indexes FollowSymLinks MultiViews Includes
+         AllowOverride All
+         Order allow,deny
+         Allow from all
+   </Directory>
+</VirtualHost>" > /etc/apache2/vhosts/$2.vhosts
+
+#criacao dos arquivos de log
+touch /home/$1/$2/log/apache/$2_error_log
+touch /home/$1/$2/log/apache/$2_access_log
+
+#criar index - 403 forbinden
+echo "<h1>$2</h1> <br> adm: $3" > /home/$1/$2/site/index.html
+
+#mudando permisao do diretorio
+chown $1.$1 /home/$1/ -R
+
+# modifica permissoes dos arquivos criados
+chmod 755 /home/$1/$2/public_html -R
+chown www-data.www-data /home/$1/$2/public_html -R
+
+#reiniciar apache
+apache2ctl restart
+
+#voltar para o diretorio /var/controladorWeb/services
+cd /opt/controladorWeb/services
+
+#criar conf do awstats
+#/var/controladorWeb/services/criaAWstats.sh
+
+#manda acessar
+echo "acesse agora pelo seu browser favorito http://$2"

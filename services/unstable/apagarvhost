@@ -1,0 +1,32 @@
+#!/bin/bash
+# script para apagar vhosts no padrao de instalação aletta
+# para o uso, digite ./apagarrvhost nomedovhost.org
+# 
+# escrito por vitoria mario
+# use este script como achar melhor. permitido a copia e modificacao
+
+#verifica se o parametro nomedovhost foi digitado
+if test $# = 0
+then
+	echo ERRO:: SINTAXE MAL FORMADA:
+	echo Utilize ./apagarvhost nomedovhost.org
+	exit 1
+fi
+
+# apaga as pastas htdocs
+cd /tagi/sitios
+rm -rf $1
+
+
+#apaga arquivo de vhost
+rm /etc/apache2/vhosts/$1.vhosts
+
+#apagar os arquivos de log
+rm /var/log/apache2/$1_error_log
+rm /var/log/apache2/$1_access_log
+
+#reiniciar apache
+apache2ctl restart
+
+#voltar para o diretorio /aletta/services
+cd /tagi/services

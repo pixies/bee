@@ -1,0 +1,59 @@
+#!/bin/bash
+# script para a criacao de vhosts no padrao de instalacao aletta
+# para o uso, digite ./criarvhost nomedovhost.org emailadmin@server.org
+# 
+# escrito por vitoria mario
+# use este script como achar melhor. permitido a copia e modificacao
+
+#verifica se o parametro nomedovhost foi digitado
+if test $# = 0
+then
+	echo ERRO:: SINTAXE MAL FORMADA:
+	echo Utilize ./criarvhost nomedovhost.org emailadmin@server.org
+	exit 1
+fi
+
+# cria pastas htdocs
+cd /aletta/sitios
+mkdir -p $1/htdocs-prod
+
+#criacao de vhost
+echo "#NameVirtualHost *:80
+<VirtualHost *>
+   ServerName $1
+   ServerAlias www.$1
+   ServerAlias $1
+   ServerAdmin $2
+   DocumentRoot /aletta/sitios/$1/htdocs-prod
+   ErrorLog /var/log/httpd/$1_error_log
+   CustomLog /var/log/httpd/$1_access_log combined
+   <Directory "/aletta/sitios/$1/htdocs-prod">
+        Options FollowSymLinks
+        AllowOverride None
+   </Directory>
+</VirtualHost>" > /etc/httpd/vhosts/$1.vhosts
+
+#criacao dos arquivos de log
+touch /var/log/httpd/$1_error_log
+touch /var/log/httpd/$1_access_log
+
+
+#criar index - 403 forbinden
+echo "$1 <br> adm: $2" > /aletta/sitios/$1/htdocs-prod/index.html
+
+# modifica permissoes dos arquivos criados
+chmod 755 /aletta/sitios/$1/htdocs-prod -R
+chown nobody.nobody /aletta/sitios/$1/htdocs-prod -R
+
+#reiniciar apache
+apachectl restart
+
+#voltar para o diretorio /aletta/services
+cd /aletta/services
+
+#criar conf do awstats
+/aletta/services/criaAWstats.sh
+
+#manda acessar
+echo "acesse agora pelo seu browser favorito http://$1"
+

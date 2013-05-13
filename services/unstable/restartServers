@@ -1,0 +1,3 @@
+#!/bin/bash
+/usr/sbin/apachectl restart
+#/etc/rc.d/rc.mysqld restart
