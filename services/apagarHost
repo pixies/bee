@@ -1,9 +1,16 @@
 #!/bin/bash
-# script para apagar vhosts no padrao de instalaÁ„o aletta
-# para o uso, digite ./apagarrvhost nomedovhost.org
-# 
-# escrito por vitoria mario
-# use este script como achar melhor. permitido a copia e modificacao
+# script para a criacao de hosts
+# para o uso, digite ./criarvhost <usuario> <nomedohost>
+# <usuario> -> Usuario no GNU/Linux
+# <nomedohost> -> Nome do host a ser adcionado
+#
+# IMPORTANTE - (Primeira vers√£o escrito by vitoriamario)
+#
+# Vers√£o atual, 0.1
+# Mantenedor: pixies
+# Licen√ßa: GPL
+#
+#
 
 #verifica se o parametro nomedovhost foi digitado
 if test $# = 0
