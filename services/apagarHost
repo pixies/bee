@@ -9,24 +9,24 @@
 if test $# = 0
 then
 	echo ERRO:: SINTAXE MAL FORMADA:
-	echo Utilize ./apagarvhost nomedovhost.org
+	echo Utilize ./apagarvhost usuario nomedovhost.org
 	exit 1
 fi
 
 # apaga as pastas htdocs
-cd /tagi/sitios
-rm -rf $1
+cd /home/$1
+rm -rf $2
 
 
 #apaga arquivo de vhost
-rm /etc/apache2/vhosts/$1.vhosts
+rm /etc/apache2/vhosts/$2.vhosts
 
 #apagar os arquivos de log
-rm /var/log/apache2/$1_error_log
-rm /var/log/apache2/$1_access_log
+rm /home/$1/log/apache2/$2_error_log
+rm /home/$1/log/apache2/$2_access_log
 
 #reiniciar apache
 apache2ctl restart
 
 #voltar para o diretorio /aletta/services
-cd /tagi/services
+cd /opt/bee/services/
