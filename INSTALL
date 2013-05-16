@@ -1,0 +1,17 @@
+#Bee - Manager virtual hosts (Gerente de hosts virtuais)
+#Versão: 0.1
+#Licença: LGPL3
+#mantenedor: Cleyton Fábio (pixies) - pixies@pelivre.org 
+#############################################################
+
+1. Baixo o Bee via github
+2. cd bee/
+3. Execute o arquivo install.sh -> sh install.sh
+
+Este procedimento ira criar o diretorio vhosts onde ficarao os arquivos 
+de cada vhost e adcionará ao apache o caminho para o diretorio vhost 
+Include /opt/bee/vhosts/
+
+Os procedimentos acima devem ser feitos no diretorio /opt e deve ser 
+feito como usuario root.
+
