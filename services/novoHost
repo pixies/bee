@@ -46,7 +46,7 @@ echo "
          Order allow,deny
          Allow from all
    </Directory>
-</VirtualHost>" > /etc/apache2/vhosts/$2.vhosts
+</VirtualHost>" > /opt/bee/vhosts/$2.vhosts
 
 #criacao dos arquivos de log
 touch /home/$1/$2/log/apache/$2_error_log
@@ -66,7 +66,7 @@ chown www-data.www-data /home/$1/$2/public_html -R
 apache2ctl restart
 
 #voltar para o diretorio /var/controladorWeb/services
-cd /opt/controladorWeb/services
+cd /opt/bee/services
 
 #criar conf do awstats
 #/var/controladorWeb/services/criaAWstats.sh
