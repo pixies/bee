@@ -1,5 +1,12 @@
 #!/bin/sh
-
+#
+#Script de instalacao do bee-v0.1
+#Versao 0.1
+#Licenca GPL3
+#Autor: Marcos Adriano
+#E-mail: marcosadriano@tagi.com.br
+#
+#
 #Criando diretorio dos vhosts
 echo 'Add vhost dir'
 mkdir vhosts
