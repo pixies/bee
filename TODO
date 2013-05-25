@@ -1,16 +1,9 @@
-#v1
+#v0.1.1
 #Controle de atividades a fazer Bee.
 #
 #Cada item é uma atividade, deve ser executada individualmente e commitada!
 
-1. Remover o diretirios sitios/ não deveria esta aqui!
-   CONCLUIDO
-2. Remover o diretorio vhost dentro do diretorio services, services/vhost
-   CONCLUIDO
-3. Scripts não estáveis devem ficar dentro do diretorio services/unstable/
-   CONCLUIDO
-4. Implementar script de backup.
-5. Construir instalador/facilitador para a instalação do bee. 
-6. Criar diretorio apache_dev e colocar a base do apache compactada dentro dele.
-   CONCLUIDO
-7. Modificacao na estrutura do .git removido o diretorio .git/obects/pack/
+1. Implementar script de services/backup;
+2. Implementar nova estrutura do Bee.
+   2.1 colocar o diretorio services/ dentro do diretorio /etc/bee/
+   2.2 Criar os links do /etc/bee/services/* para /bin/ 
