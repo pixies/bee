@@ -46,7 +46,7 @@ echo "
          Order allow,deny
          Allow from all
    </Directory>
-</VirtualHost>" > /opt/bee/vhosts/$2.vhosts
+</VirtualHost>" > /etc/bee/vhosts/$2.vhosts
 
 #criacao dos arquivos de log
 touch /home/$1/$2/log/apache/$2_error_log
