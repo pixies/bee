@@ -1,29 +1,28 @@
-#Bee
-#É um sistema de controle web para gerenciamento de WebHosts!
-#Versão: 0.1
-#Licença: LGPL3
-#mantenedor: Cleyton Fábio (pixies) - pixies@pelivre.org 
-#
-#
-######################################################### Perguntas interessantes
+### Perguntas frequentes
 
-1 O que ela faz?
-  Otimiza recursos do apache2 oferecendo mais conforto no gerenciamento de HostVistuais ao administrador.
+#### 1) Pra que serve o Bee? 
 
-2 Quem desenvolve?
-  Atualmente eu "pixies" venho otimizando os scripts e o Izaac Filho vem fazendo alguns testes também! Precisamos de mais amigos!
+O Bee é uma ferramenta de gerenciamento de hosts virtuais do Apache, otimizador de desempenho e de estrutura de diretórios para tornar a vida de quem precisa usar o Apache mais fácil.
 
-3 Como surgio a ideia?
-  Dentro da rede de servidores livres, Ananias Filho aka kram3r implementou um conjunto de scripts os quais venho otimizando.
+#### 2) Quem é o responsável pelo projeto? Tem garantia se quebrar?
 
-4 Dependências?
-  Para instalar o Bee é necessário ter o apache2 instalado e o modulo userDir ativo.
+Eu, [pixies](github.com/pixies) e o Izaac Filho somos os responsáveis por otimizar, testar e garantir que os scripts funcionem bem. Nós usamos em produção. Se quiser usá-lo, faça por sua conta!
 
-5 Por que precisa do modulo userDir?
-  Permite um melhor controle do acesso aos hosts hospedados. Atualmente está é a melhor forma de fazer isso, mais estamos testando sua real necessidade.
+#### 3) Como surgiu a ideia?
 
-6 O Bee está em desenvolvimento?
-  Sim, mais o modelo já pode ser utilizado, na verdade está em produção e testes a mais de 4 anos, desde o início da rede de servidores livre.
+A ideia surgiu dentro da Rede de Servidores Livres **PELivre**, através de Ananias Filho (*aka kram3r*), que implementou uma série de scripts que estamos mantendo até hoje.
 
-7 Quem pode ajudar?
-  Você, descubra como!
+#### 4) Como instalar o Bee? Ele requer quais dependências?
+
+Mais informações sobre a instalação [aqui](https://github.com/pixies/bee/blob/master/INSTALACAO.md).
+
+#### 5) Por que eu preciso deste módulo **userDir** disponível?
+Ele permite um melhor controle do acesso aos hosts hospedados. Atualmente, está é a melhor forma de fazer isso, mais estamos testando sua real necessidade.
+
+#### 6) O Bee está em desenvolvimento?
+
+Sim, está. Nós usamos em produção há anos na Rede de Servidores Livres **PELivre**. Você pode utilizá-lo por sua conta e risco.
+
+#### 7) Como posso ajudar no desenvolvimento do Bee?
+
+Pull requests e issues são muito bem vindas para melhorias deste projeto. Fique a vontade para contribuir e sugerir qualquer mudança.
